@@ -6,6 +6,7 @@ package com.datit.view;
 
 import com.datit.model.User;
 import com.datit.dao.UserDAO;
+import java.awt.Cursor;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -98,6 +99,11 @@ public class SignInForm extends javax.swing.JFrame {
 
         txt_pass.setEchoChar('\u25cf');
         txt_pass.setFocusAccelerator('\u25cf');
+        txt_pass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passActionPerformed(evt);
+            }
+        });
 
         txt_confirmpas.setEchoChar('\u25cf');
         txt_confirmpas.setFocusAccelerator('\u25cf');
@@ -208,6 +214,7 @@ public class SignInForm extends javax.swing.JFrame {
     private void btn_singinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_singinActionPerformed
         // TODO add your handling code here:
         if (checkConstraint()) {
+            this.setCursor(Cursor.WAIT_CURSOR);
             String name = txt_name.getText();
             String username = txt_username.getText();
             String pass = String.valueOf(txt_pass.getPassword());
@@ -218,8 +225,14 @@ public class SignInForm extends javax.swing.JFrame {
             } else {
                 lb_notify.setText("Change username !!!");
             }
+            this.setCursor(Cursor.DEFAULT_CURSOR);
         }
     }//GEN-LAST:event_btn_singinActionPerformed
+
+    private void txt_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passActionPerformed
+        // TODO add your handling code here:
+        btn_singinActionPerformed(evt);
+    }//GEN-LAST:event_txt_passActionPerformed
 
     /**
      * @param args the command line arguments

@@ -9,6 +9,7 @@ import com.datit.model.User;
 import com.datit.dao.BudgetDAO;
 import java.awt.Toolkit;
 import java.sql.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -271,41 +272,46 @@ public class EditBudgetForm extends javax.swing.JFrame {
 
     private void btn_submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_submitActionPerformed
         // TODO add your handling code here:
-        String title = txt_title.getText();
-        String des = txt_des.getText();
-        Date date = Date.valueOf(txt_date.getText());
-        double values = Double.parseDouble(txt_values.getText());
-        boolean status = true;
-        if (rbtn_pay.isSelected()) {
-            status = false;
-        }
-        Budget newBg = new Budget(title, des, status, values, date);
-        switch (request) {
-            case 0: {
-                try {
-                    bgDao.insertBudget(newBg, us);
-                    lb_notify.setText("Insert Success !!!");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    lb_notify.setText("Fail !!! Check input data");
-                }
+        try {
+            String title = txt_title.getText();
+            String des = txt_des.getText();
+            Date date = Date.valueOf(txt_date.getText());
+            double values = Double.parseDouble(txt_values.getText());
+            boolean status = true;
+            if (rbtn_pay.isSelected()) {
+                status = false;
             }
-            break;
-            case 1: {
-                try {
-                    long id = Long.parseLong(txt_id.getText());
-                    newBg.setId(id);
-                    bgDao.updateBudget(newBg);
-                    lb_notify.setText("Update Success !!!");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    lb_notify.setText("Fail !!! Check input data");
+            Budget newBg = new Budget(title, des, status, values, date);
+            switch (request) {
+                case 0: {
+                    try {
+                        bgDao.insertBudget(newBg, us);
+                        lb_notify.setText("Insert Success !!!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        lb_notify.setText("Fail !!! Check input data");
+                    }
                 }
+                break;
+                case 1: {
+                    try {
+                        long id = Long.parseLong(txt_id.getText());
+                        newBg.setId(id);
+                        newBg.setUser(us);
+                        bgDao.updateBudget(newBg);
+                        lb_notify.setText("Update Success !!!");
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        lb_notify.setText("Fail !!! Check input data");
+                    }
+                }
+                break;
             }
-            break;
-            default:
-                throw new AssertionError();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Check format input data", "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
+
     }//GEN-LAST:event_btn_submitActionPerformed
 
     private void rbtn_incomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_incomeActionPerformed

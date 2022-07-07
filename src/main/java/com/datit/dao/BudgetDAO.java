@@ -5,7 +5,6 @@
 package com.datit.dao;
 
 import com.datit.hibernate.HibernateUtils;
-import com.datit.log.WriteLog;
 import com.datit.model.Budget;
 import com.datit.model.User;
 import java.util.List;
@@ -32,7 +31,7 @@ public class BudgetDAO {
                     .list();
         } catch (Exception e) {
             e.printStackTrace();
-            WriteLog.writeLog(e, "BudgetApp");
+            
         } finally {
             session.close();
         }
@@ -47,7 +46,7 @@ public class BudgetDAO {
             budget = session.get(Budget.class, id);
         } catch (Exception e) {
             e.printStackTrace();
-            WriteLog.writeLog(e, "BudgetApp");
+            
 
         } finally {
             session.close();
@@ -69,7 +68,7 @@ public class BudgetDAO {
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
-            WriteLog.writeLog(e, "BudgetApp");
+            
 
         } finally {
             session.close();
@@ -90,7 +89,7 @@ public class BudgetDAO {
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
-            WriteLog.writeLog(e, "BudgetApp");
+            
 
         } finally {
             session.close();
@@ -114,7 +113,7 @@ public class BudgetDAO {
             } catch (Exception e) {
                 tx.rollback();
                 e.printStackTrace();
-                WriteLog.writeLog(e, "BudgetApp");
+                
 
             } finally {
                 session.close();

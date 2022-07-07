@@ -4,7 +4,6 @@
  */
 package com.datit.hibernate;
 
-import com.datit.log.WriteLog;
 import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -21,7 +20,7 @@ public class HibernateUtils {
             e.printStackTrace();
         JOptionPane.showConfirmDialog(null,"Connect to Database fail !","Notification",
                     JOptionPane.OK_OPTION,JOptionPane.ERROR_MESSAGE);
-            WriteLog.writeLog(e, "HibernateUtils");
+           
         }
         return sessionFactory;
     }

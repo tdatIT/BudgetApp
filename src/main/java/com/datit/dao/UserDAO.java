@@ -5,7 +5,6 @@
 package com.datit.dao;
 
 import com.datit.hibernate.HibernateUtils;
-import com.datit.log.WriteLog;
 import com.datit.model.User;
 import java.util.List;
 import org.hibernate.Session;
@@ -28,7 +27,7 @@ public class UserDAO {
             us = session.createQuery(SELECT, User.class).setParameter("id", id).uniqueResult();
         } catch (Exception e) {
             e.printStackTrace();
-            WriteLog.writeLog(e, "UserDao");
+            
 
         } finally {
             session.close();
@@ -44,7 +43,7 @@ public class UserDAO {
             users = session.createQuery(SELECT_ALL).list();
         } catch (Exception e) {
             e.printStackTrace();
-            WriteLog.writeLog(e, "UserDao");
+            
 
         } finally {
             session.close();
@@ -65,7 +64,7 @@ public class UserDAO {
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
-            WriteLog.writeLog(e, "UserDao");
+            
 
         } finally {
             session.close();
@@ -85,7 +84,7 @@ public class UserDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
-            WriteLog.writeLog(e, "UserDao");
+            
 
         } finally {
             session.close();

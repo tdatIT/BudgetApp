@@ -68,6 +68,16 @@ public class LoginForm extends javax.swing.JFrame {
         txt_password.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txt_password.setEchoChar('\u25cf');
         txt_password.setFocusAccelerator('\u25cf');
+        txt_password.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_passwordActionPerformed(evt);
+            }
+        });
+        txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyPressed(evt);
+            }
+        });
 
         btn_login.setBackground(new java.awt.Color(19, 141, 117));
         btn_login.setFont(new java.awt.Font("Be Vietnam Pro", 0, 14)); // NOI18N
@@ -219,10 +229,16 @@ public class LoginForm extends javax.swing.JFrame {
         sgnForm.setVisible(true);
     }//GEN-LAST:event_btn_signinActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    
+    private void txt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txt_passwordKeyPressed
+
+    private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
+        // TODO add your handling code here:
+        btn_loginActionPerformed(evt);
+    }//GEN-LAST:event_txt_passwordActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;

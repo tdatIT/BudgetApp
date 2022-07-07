@@ -169,6 +169,10 @@
                 <Property name="echoChar" type="char" value="&#x25cf;"/>
                 <Property name="focusAccelerator" type="char" value="&#x25cf;"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_passwordActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_passwordKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btn_login">
               <Properties>
