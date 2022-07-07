@@ -25,7 +25,6 @@
  
         <!-- Show all executed SQL to stdout -->
         <property name="show_sql">true</property>
-        <property name="generate_statistics">true</property>
         <!--Mapping class-->
         <mapping class="com.datit.model.Budget"/>
         <mapping class="com.datit.model.User"/>
